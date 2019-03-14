@@ -18,3 +18,5 @@ FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
 IGNORE 1 LINES
 (id_prod, date_transactions, session_id, client_id);
+
+# Caroline écrit ...
