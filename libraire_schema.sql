@@ -1,0 +1,40 @@
+DROP DATABASE IF EXISTS libraire;
+CREATE DATABASE libraire CHARACTER SET 'utf8MB4';
+USE libraire;
+
+CREATE TABLE customers (
+client_id VARCHAR(50),
+sex CHAR(1) NOT NULL,
+birth INT,
+PRIMARY KEY (client_id)
+)
+ENGINE=INNODB DEFAULT CHARSET=utf8MB4;
+
+CREATE TABLE products (
+id_prod VARCHAR(50) NOT NULL,
+price DECIMAL(5,2) NOT NULL,
+categ VARCHAR(45),
+PRIMARY KEY (id_prod)
+)
+
+ENGINE=INNODB DEFAULT CHARSET=utf8MB4;
+
+CREATE TABLE transactions (
+id_transactions INT UNSIGNED AUTO_INCREMENT,
+id_prod VARCHAR(50) NOT NULL,
+date_transactions VARCHAR(50),
+session_id VARCHAR(35),
+client_id VARCHAR(50),
+PRIMARY KEY (id_transactions),
+
+CONSTRAINT fk_trans_cus FOREIGN KEY (client_id) 
+REFERENCES customers (client_id)
+ON DELETE RESTRICT ON UPDATE CASCADE
+
+-- CONSTRAINT fk_trans_pro FOREIGN KEY (id_prod)
+-- REFERENCES products (id_prod)
+-- ON DELETE RESTRICT ON UPDATE CASCADE
+)
+
+ENGINE=INNODB DEFAULT CHARSET=utf8MB4;
+
