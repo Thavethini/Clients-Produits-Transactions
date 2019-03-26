@@ -24,8 +24,3 @@ SELECT * FROM products WHERE categ = 2 AND id_prod NOT LIKE '2\_%';
 SELECT * FROM products WHERE (categ=0 AND id_prod NOT LIKE "0\_%") OR (categ=2 AND id_prod NOT LIKE "2\_%") OR (categ=1 AND id_prod NOT LIKE "1\_%");
 
 SELECT * FROM products INNER JOIN transactions ON transactions.id_prod = products.id_prod WHERE price = "-1" LIMIT 10;
-
-pattern.id_prod <- "^[012][_][0-9]{1,}$"
-
-
-
